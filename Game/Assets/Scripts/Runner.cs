@@ -16,11 +16,14 @@ public class Runner : MonoBehaviour
 
     [SerializeField] Rigidbody rigidBody;
 
+    [SerializeField] Animator animator;
+
     [SerializeField] int positionX =  4;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>(); 
     }
     void Update()
     {
@@ -39,7 +42,7 @@ public class Runner : MonoBehaviour
             if (roadline != RoadLine.LEFT)
             {
                 roadline--;
-
+                animator.Play("LeftAvoid");
             }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -47,6 +50,7 @@ public class Runner : MonoBehaviour
             if (roadline != RoadLine.RIGHT)
             {
                 roadline++;
+                animator.Play("RightAvoid");
             }
         }
     }
