@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     // 동기 방식
     public void Excute()
     {
-        SceneManager.LoadScene("Game");
+        StartCoroutine(SceneryManager.Instance.AsyncLoad(1));
     }
 
     public void Exit()

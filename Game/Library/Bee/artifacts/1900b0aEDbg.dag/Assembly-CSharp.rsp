@@ -359,7 +359,9 @@
 "Assets/Scripts/Road.cs"
 "Assets/Scripts/RoadManager.cs"
 "Assets/Scripts/Runner.cs"
+"Assets/Scripts/SceneryManager.cs"
 "Assets/Scripts/Select.cs"
+"Assets/Scripts/Singleton.cs"
 -langversion:9.0
 /deterministic
 /optimize-
