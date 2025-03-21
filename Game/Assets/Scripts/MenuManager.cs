@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
     // 동기 방식
     public void Excute()
     {
+        GameManager.Instance.Execute();
+
         StartCoroutine(SceneryManager.Instance.AsyncLoad(1));
     }
 

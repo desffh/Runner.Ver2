@@ -8,6 +8,8 @@ public class Select : MonoBehaviour
 
     [SerializeField] Text buttontext;
 
+    [SerializeField] Sound sound = new Sound();
+
     private void Awake()
     {
         buttontext = GetComponentInChildren<Text>();       

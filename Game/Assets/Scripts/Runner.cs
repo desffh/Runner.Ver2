@@ -34,6 +34,11 @@ public class Runner : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(GameManager.Instance.check == false)
+        {
+            return;
+        }
+
         rigidbodyMove();
     }
 
