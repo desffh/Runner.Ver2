@@ -74,6 +74,23 @@ public class Runner : MonoBehaviour
             );
     }
 
+    void Die()
+    {
+        animator.Play("Die");
+        GameManager.Instance.Finish();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {   
+        // 충돌된 오브젝트에 Obstacle 스크립트
+        Obstacle obstacle = other.GetComponent<Obstacle>();
+
+        if (other != null)
+        {
+            Die();
+        }
+    }
+
     private void Disable()
     {
         InputManager.Instance.action -= OnKeyUpdate;
