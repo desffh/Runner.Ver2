@@ -18,7 +18,7 @@ public class Watch : MonoBehaviour
         textTime = GetComponent<Text>();
         
     }
-
+    
     void Start()
     { 
         StartCoroutine(Measure());
@@ -26,7 +26,7 @@ public class Watch : MonoBehaviour
 
     IEnumerator Measure()
     {
-        while (GameManager.Instance.check)
+        while (GameManager.Instance.State)
         {
             time += Time.deltaTime;
 
@@ -36,9 +36,9 @@ public class Watch : MonoBehaviour
 
             textTime.text = string.Format("{0:D2} : {1:D2} : {2:D2}", minute, second, milseconds);
 
-            yield return null;
+            yield return null; 
         }
 
-    }
+    } 
 
 }

@@ -5,21 +5,20 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    private bool checks = true;
-    public bool check
+    private bool state;
+    public bool State
     {
-        get { return checks;  }
-        set { checks = value; }
+        get { return state;}
     }
 
     public void Execute()
     {
-        check = true;
+        state = true;
     }
 
     public void Finish()
     {
-        check = false;
+        state = false;
 
         MouseManager.Instance.State(0);
     }

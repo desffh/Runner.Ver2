@@ -16,7 +16,7 @@ public class RoadManager : MonoBehaviour
     }
     void Update()
     {
-        if (GameManager.Instance.check == false)
+        if (GameManager.Instance.State == false)
         {
             return;
         }

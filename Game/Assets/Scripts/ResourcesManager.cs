@@ -11,6 +11,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
         return Resources.Load<T>(path);
     }
 
+    // Instantiate 랩핑
     public GameObject Instantiate(string path, Transform parent = null)
     {
         GameObject prefab = Load<GameObject>(path);
@@ -21,6 +22,8 @@ public class ResourcesManager : Singleton<ResourcesManager>
             return null;
         }
 
+        // Object는 생략가능
+        // 생성된 prefab 객체를 반환하기 위해서 참조변수 clone에 담기
         GameObject clone = Object.Instantiate(prefab, parent);
 
         // 읽기전용이라 대입해야된다

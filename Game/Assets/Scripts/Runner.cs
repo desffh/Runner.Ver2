@@ -34,7 +34,7 @@ public class Runner : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(GameManager.Instance.check == false)
+        if(GameManager.Instance.State == false)
         {
             return;
         }
@@ -85,7 +85,7 @@ public class Runner : MonoBehaviour
         // 충돌된 오브젝트에 Obstacle 스크립트
         Obstacle obstacle = other.GetComponent<Obstacle>();
 
-        if (other != null)
+        if (obstacle != null)
         {
             Die();
         }
