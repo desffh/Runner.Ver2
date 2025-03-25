@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
         GameManager.Instance.Execute();
 
         StartCoroutine(SceneryManager.Instance.AsyncLoad(1));
+
+
     }
 
     public void Exit()

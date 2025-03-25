@@ -15,7 +15,7 @@ public class ObstacleManager : MonoBehaviour
 
     [SerializeField] int random;
 
-    
+    [SerializeField] Transform [ ] transforms;
 
     void Start()
     {
@@ -81,7 +81,6 @@ public class ObstacleManager : MonoBehaviour
                     GameObject clone = 
                         ResourcesManager.Instance.
                         Instantiate(obstacleNames[Random.Range(0, obstacleNames.Count)], gameObject.transform);
-                    
 
                     clone.SetActive(false);
 
@@ -91,8 +90,10 @@ public class ObstacleManager : MonoBehaviour
                 // 현재 인덱스에 있는 게임 오브젝트가 활성화되어 있으면 
                 // random 변수의 값을 +1을 해서 다시 검색합니다.
                 random = (random + 1) % obstacles.Count;
-            } 
-            
+            }
+
+            obstacles[random].transform.position = transforms[Random.Range(0, transforms.Length)].position;
+
             obstacles[random].SetActive(true);
         }
     }

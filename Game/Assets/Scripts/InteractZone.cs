@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class InteractZone : MonoBehaviour
 {
     [SerializeField] BoxCollider Collider;
@@ -13,11 +16,13 @@ public class InteractZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Road road = other.GetComponent<Road>();
-
-        if (road != null)
+        IHitable hitable = other.GetComponent<IHitable>();
+        
+        if (hitable != null)
         {
-            road.Activate();
+            hitable.Activate();
         }
     }
+
+
 }

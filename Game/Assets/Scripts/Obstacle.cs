@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour, IHitable
 {
-    [SerializeField] Vector3[] randomVector3 = new Vector3[3];
+    [SerializeField] float speed;
 
-    private void Awake()
+    public void Activate()
     {
-        randomVector3[0] = new Vector3(-4, 0, 0);
-        randomVector3[1] = new Vector3( 0, 0, 0);
-        randomVector3[2] = new Vector3( 4, 0, 0);
-
+        gameObject.SetActive(false);
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        transform.position = randomVector3[Random.Range(0, randomVector3.Length)];
+        if (GameManager.Instance.State == false)
+        {
+            return;
+        }
+
+        // 장애물은 리지드 바디가 없기 때문에 일반 업데이트에서 이동
+
+        transform.Translate(Vector3.back * SpeedManager.Instance.Speed * Time.deltaTime);
+    
+    
     }
+
+
+
 }
