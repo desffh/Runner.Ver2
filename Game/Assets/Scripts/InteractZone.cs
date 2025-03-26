@@ -16,6 +16,8 @@ public class InteractZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        // °³¹æ Æó¼â ¿øÄ¢
+
         IHitable hitable = other.GetComponent<IHitable>();
         
         if (hitable != null)

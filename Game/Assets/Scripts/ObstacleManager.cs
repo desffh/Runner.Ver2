@@ -61,7 +61,7 @@ public class ObstacleManager : MonoBehaviour
     {
         while(GameManager.Instance.State)
         {
-            yield return new WaitForSeconds(2.5f);
+            yield return CoroutineCache.WaitForSeconds(TimeManager.Instance.activeTime);
 
             random = Random.Range(0, obstacles.Count);
 
