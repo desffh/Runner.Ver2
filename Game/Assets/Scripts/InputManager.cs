@@ -19,6 +19,11 @@ public class InputManager : Singleton<InputManager>
     
     void Update()
     {
+        if(GameManager.Instance.State == false)
+        {
+            return;
+        }
+
         // 키 입력이 들어오지 않았다면
         if(Input.anyKey == false)
         {

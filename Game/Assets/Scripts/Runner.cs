@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class Runner : MonoBehaviour
 
     [SerializeField] int positionX =  4;
 
-
+    [SerializeField] CinemachineVirtualCamera CinemachineVirtualCamera;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -84,6 +85,7 @@ public class Runner : MonoBehaviour
     {
         animator.Play("Die");
         GameManager.Instance.Finish();
+        CinemachineVirtualCamera.LookAt = transform;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -95,6 +97,12 @@ public class Runner : MonoBehaviour
         {
             Die();
         }
+    }
+
+
+    public void synchronize()
+    {
+        animator.speed = SpeedManager.Instance.Speed / SpeedManager.Instance.InitializeSpeed;
     }
 
     private void Disable()

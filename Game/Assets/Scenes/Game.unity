@@ -3368,6 +3368,7 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   animator: {fileID: 0}
   positionX: 4
+  CinemachineVirtualCamera: {fileID: 197459555}
 --- !u!54 &4383608001610571048
 Rigidbody:
   m_ObjectHideFlags: 0

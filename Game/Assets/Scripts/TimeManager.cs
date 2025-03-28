@@ -9,12 +9,27 @@ public class TimeManager : Singleton<TimeManager>
 
     [SerializeField] float limittime = 0.5f;
 
+    [SerializeField] float bestTime;
+
     // 읽기 전용 
     public float activeTime { get { return activetime; } }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void SetTime(float time)
+    {
+        bestTime = PlayerPrefs.GetFloat("Time");
+
+        Debug.Log("Best Time : " + bestTime);
+        Debug.Log("Current Time : " + time);
+
+        if (bestTime < time)
+        {
+            PlayerPrefs.SetFloat("Time", time);
+        }
     }
 
     IEnumerator Decrease()
